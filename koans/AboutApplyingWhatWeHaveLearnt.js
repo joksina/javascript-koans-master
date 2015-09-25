@@ -90,19 +90,85 @@ describe("About Applying What We Have Learnt", function() {
   /* UNCOMMENT FOR EXTRA CREDIT */
   /*
   it("should find the largest prime factor of a composite number", function () {
+    
+    function prime(num){
+  for(var i = 2; i < num; i++){
+    if(num % i === 0){
+      num = num / i;
+    }
+
+  }
+return i
+}
+
+function find_highest_prime_factor(n) {
+  var max = Math.round(Math.sqrt(n));
+  for(var i = max; i >= 2; i--) {
+    if(n % i == 0 && find_highest_prime_factor(i) == 1) {
+      return i;
+    }
+  }
+  return 1;
+}
 
   });
 
   it("should find the largest palindrome made from the product of two 3 digit numbers", function () {
 
+    function isPal(str){
+  str = str.toString();
+  return str === str.split("").reverse().join("")
+}
+function longPali(start, end){
+  var max = 0;
+  for(var i = start; i < end; i++){
+    for(var y = start; y < end; y++){
+      var mult = i * y;
+      if(isPal(mult) && mult> max){
+        max = mult;
+      }
+    }
+  }
+  return max;
+}
+
   });
 
   it("should find the smallest number divisible by each of the numbers 1 to 20", function () {
+    var foundIt = false;
+var test = 10;
+var result;
+while (foundIt === false) {
+  var isEvenlyDivisible = true;
+  for (var x = 1 ; x < 21 ; x++) {
+    if (test % x !== 0) {
+      isEvenlyDivisible = false;
+      break;
+    }
+  }
+  if (isEvenlyDivisible) {
+    foundIt = true;
+    result = test;
+    break;
+  }
+  
+  test++;
+}
 
 
   });
 
   it("should find the difference between the sum of the squares and the square of the sums", function () {
+
+    var sumOfSquares = 0;
+var squareOfSums = 0;
+
+for (var x = 1 ; x < 101 ; x++) {
+  sumOfSquares += x * x;
+  squareOfSums += x;
+}
+
+squareOfSums *= squareOfSums;
 
   });
 
