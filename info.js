@@ -2,6 +2,7 @@
 //lexical scoping is what we create and how it
 // Es6 ecmaScript 6
 //jit ==> just in time
+//david.goldberg@makersquare.com
 
 var foo = "bar"
 
@@ -149,4 +150,85 @@ console.log("aca");
 return 1000 * 10
 };
 
-var y = invokeOneTime(exp)
+var y = invokeOneTime(exp);
+
+//Event Loop
+// web api --> numbers of helper in js e.g setTimeout, xmlhttp request, Xom Documents
+//heap is memory storage... 
+//muddybarefeet
+function letterCount(str){
+	str = str.split("");
+	return str.reduce(function(a, b){
+		if(a[b]){
+			a[b] += 1
+		}else{
+			a[b] = 1;
+		}
+		return a;
+	}, {})
+}
+
+function multiply(a, b){
+	return a * b;
+}
+
+function square(n){
+	return multiply(n, n);
+}
+
+function printSquare(n){
+	var squared = square(n);
+	console.log(squared) ;
+}
+printSquare(4);
+//16
+
+function foo(){
+	throw new Error("oops")
+}
+function bar(){
+	foo()
+}
+function baz(){
+	bar();
+}
+baz();
+
+function commonCharacters(str, str1){
+	return intersection(str, str1);
+}
+
+function intersection(set1, set2){
+	return Object.keys(set1).reduce(
+		function(out, val){
+			if(val in set2){
+				out[val] = true;
+			}
+			return out;
+		},
+		{});
+}
+function objectify(str){
+	return str.split("").reduce(function(acc, curr){
+		if(cha.match(/[a-z]/i)) {
+		acc[curr] = true;
+	}
+		return acc;
+	}, {});
+}
+//common characters
+function commonCharacters(str, str1){
+	var common = intersection(objectify(str), objectify(str1));
+	return str1.split("").reduce(function(result, cha){
+		if(common[cha]) {
+			result += cha;
+		}
+		return result;
+	}, "")
+}
+
+
+
+
+
+
